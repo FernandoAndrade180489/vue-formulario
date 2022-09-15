@@ -187,6 +187,42 @@
             </div>
           </div>
           <div class="mb-3 row">
+            <label class="col-3 col-form-label">Placa Veículo:</label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                v-maska="'AAA-####'"
+                v-model="form.placaVeiculo"
+              />
+              <small class="text-muted">Formato: AAA-0000</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Placa Veículo Mercosul:</label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                v-maska="'AAA#A##'"
+                v-model="form.placaVeiculoMercosul"
+              />
+              <small class="text-muted">Formato: AAA0A00</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">RG:</label>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                v-maska="'#*-X'"
+                v-model="form.rg"
+              />
+              <small class="text-muted">Formato: Sem padrão</small>
+            </div>
+          </div>
+          <div class="mb-3 row">
             <label class="col-3 col-form-label">Data:</label>
             <div class="col">
               <input type="date" class="form-control" />
@@ -312,6 +348,15 @@
           <span>Cartão de Crédito: {{ form.cartaoDeCredito }}</span>
         </div>
         <div class="mb-3 row">
+          <span>Placa Veiculo: {{ form.placaVeiculo }}</span>
+        </div>
+        <div class="mb-3 row">
+          <span>Placa Veiculo Mercosul: {{ form.placaVeiculoMercosul }}</span>
+        </div>
+        <div class="mb-3 row">
+          <span>RG: {{ form.rg }}</span>
+        </div>
+        <div class="mb-3 row">
           <span>Data:</span>
         </div>
         <div class="mb-3 row">
@@ -360,6 +405,9 @@ export default {
       cpf: "",
       cnpj: "",
       cartaoDeCredito: "",
+      placaVeiculo: "",
+      placaVeiculoMercosul: "",
+      rg: "",
     },
   }),
 };
