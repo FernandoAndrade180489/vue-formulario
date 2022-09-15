@@ -323,6 +323,16 @@
             </div>
           </div>
 
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Avaliação:</label>
+            <div class="col">
+              <input-estrelas
+                :numero-estrelas="5"
+                @avaliar="form.avaliacao = $event"
+              />
+            </div>
+          </div>
+
           <hr />
           <div class="mb-3 row">
             <div class="col d-flex justify-content-between">
@@ -473,12 +483,16 @@
         <div class="mb-3 row">
           <span>Curso: {{ form.curso }}</span>
         </div>
+        <div class="mb-3 row">
+          <span>Avaliação: {{ form.avaliacao }}</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import InputEstrelas from "./InputEstrelas.vue";
 export default {
   name: "Formulario",
   data: () => ({
@@ -516,6 +530,7 @@ export default {
       arquivos: {},
       descricao: "",
       curso: "",
+      avaliacao: 0,
     },
   }),
   methods: {
@@ -525,10 +540,8 @@ export default {
     enviar(e) {
       console.log(e);
       console.log(this.form);
-
       const formEnvio = Object.assign({}, this.form);
       console.log(formEnvio);
-
       // uma requisição http para o back-end da aplicação
     },
     resetar() {
@@ -538,5 +551,6 @@ export default {
   created() {
     this.resetar();
   },
+  components: { InputEstrelas },
 };
 </script>
