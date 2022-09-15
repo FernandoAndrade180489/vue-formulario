@@ -79,19 +79,39 @@
             <label class="col-3 col-form-label">Interesses:</label>
             <div class="col">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" />
-                <label class="form-check-label"> JavaScriot </label>
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="JavaScript "
+                />
+                <label class="form-check-label"> JavaScript </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="VueJS"
+                />
                 <label class="form-check-label"> VueJS </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="Angular"
+                />
                 <label class="form-check-label"> Angular </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  v-model="form.interesses"
+                  value="NodeJS"
+                />
                 <label class="form-check-label"> NodeJS </label>
               </div>
             </div>
@@ -211,6 +231,11 @@
         </div>
         <div class="mb-3 row">
           <spam>Interesses:</spam>
+          <ul>
+            <li v-for="(interesse, index) in form.interesses" :key="index">
+              {{ interesse }}
+            </li>
+          </ul>
         </div>
         <div class="mb-3 row">
           <spam>Telefone:</spam>
@@ -257,6 +282,7 @@ export default {
       senha: "1234456",
       idade: "33",
       licenca: "SIM",
+      interesses: ["VueJS", "Angular"],
     },
   }),
 };
