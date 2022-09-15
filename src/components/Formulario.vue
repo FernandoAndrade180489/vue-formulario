@@ -5,7 +5,7 @@
         <span class="fs-4">ENTRADA DE DADOS</span>
         <hr />
         <!-- <form @submit.prevent="enviar($event)" action=""> -->
-        <form>
+        <form @reset.prevent="resetar($event)">
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
             <div class="col">
@@ -326,6 +326,9 @@
           <hr />
           <div class="mb-3 row">
             <div class="col d-flex justify-content-between">
+              <button class="btn btn-success" type="button" @click="resetar()">
+                Limpar (btn)
+              </button>
               <button class="btn btn-secondary" type="reset">Limpar</button>
               <button
                 class="btn btn-success"
@@ -485,7 +488,8 @@ export default {
       { id: 3, curso: "Desenvolvimento Web Avançado com Laravel" },
       { id: 4, curso: "Curso Completo do Desenvolvedor NodeJS e MongoDB" },
     ],
-    form: {
+    form: {},
+    formEstadoInicial: {
       nome: "Fernando",
       email: "fernando@gmail.com",
       senha: "1234456",
@@ -527,6 +531,12 @@ export default {
 
       // uma requisição http para o back-end da aplicação
     },
+    resetar() {
+      this.form = Object.assign({}, this.formEstadoInicial);
+    },
+  },
+  created() {
+    this.resetar();
   },
 };
 </script>
