@@ -306,6 +306,22 @@
               ></textarea>
             </div>
           </div>
+          <div class="mb-3 row">
+            <label class="col-3 col-form-label">Cursos:</label>
+            <div class="col">
+              <select class="form-select" v-model="form.curso">
+                <option value="" disabled>--Selecione um Curso--</option>
+                <option
+                  v-for="curso in cursos"
+                  :key="curso.id"
+                  :value="curso.id"
+                >
+                  {{ curso.id }} - {{ curso.curso }}
+                </option>
+              </select>
+            </div>
+          </div>
+
           <hr />
           <div class="mb-3 row">
             <div class="col d-flex justify-content-between">
@@ -446,6 +462,9 @@
           <!-- <pre>{{ form.descricao }}</pre> -->
           <div style="white-space: pre">{{ form.descricao }}</div>
         </div>
+        <div class="mb-3 row">
+          <span>Curso: {{ form.curso }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -455,6 +474,12 @@
 export default {
   name: "Formulario",
   data: () => ({
+    cursos: [
+      { id: 1, curso: "Banco de Dados Relacionais" },
+      { id: 2, curso: "Desenvolvimento Web Avançado com Vue" },
+      { id: 3, curso: "Desenvolvimento Web Avançado com Laravel" },
+      { id: 4, curso: "Curso Completo do Desenvolvedor NodeJS e MongoDB" },
+    ],
     form: {
       nome: "Fernando",
       email: "fernando@gmail.com",
@@ -481,6 +506,7 @@ export default {
       escondido: "Esse Input esta escondido",
       arquivos: {},
       descricao: "",
+      curso: "",
     },
   }),
   methods: {
