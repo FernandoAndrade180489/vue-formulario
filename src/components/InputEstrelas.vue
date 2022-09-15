@@ -40,7 +40,8 @@ export default {
       }
 
       // enviar um evento personalizado para o componente pai
-      this.$emit("avaliar", this.avaliacao);
+      // this.$emit("avaliar", this.avaliacao);
+      this.$emit("update:avaliar", this.avaliacao);
     },
   },
 };
