@@ -363,7 +363,7 @@
         <div class="mb-3 row">
           <span
             >Data: {{ form.data }} |
-            {{ moment(form.data).format("DD/MM/YYYY") }}</span
+            {{ $moment(form.data).format("DD/MM/YYYY") }}</span
           >
         </div>
         <div class="mb-3 row">
@@ -396,11 +396,9 @@
 </template>
 
 <script>
-import moment from "moment";
 export default {
   name: "Formulario",
   data: () => ({
-    moment: {},
     form: {
       nome: "Fernando",
       email: "fernando@gmail.com",
@@ -424,8 +422,5 @@ export default {
       hora: "",
     },
   }),
-  created() {
-    this.moment = moment;
-  },
 };
 </script>
