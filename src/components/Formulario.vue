@@ -278,7 +278,11 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Escondido:</label>
             <div class="col">
-              <input type="hidden" class="form-control" />
+              <input
+                type="hidden"
+                class="form-control"
+                v-model="form.escondido"
+              />
             </div>
           </div>
           <div class="mb-3 row">
@@ -412,7 +416,7 @@
           <span>Valor limite: {{ form.alcance }}</span>
         </div>
         <div class="mb-3 row">
-          <span>Escondido:</span>
+          <span>Escondido: {{ form.escondido }}</span>
         </div>
         <div class="mb-3 row">
           <span>Upload:</span>
@@ -449,6 +453,7 @@ export default {
       hora: "",
       cor: "",
       alcance: 5,
+      escondido: "Esse Input esta escondido",
     },
   }),
 };
