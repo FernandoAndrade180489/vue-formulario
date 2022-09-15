@@ -8,13 +8,13 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Nome:</label>
             <div class="col">
-              <input type="text" class="form-control" v-model="form.nome" />
+              <input type="text" class="form-control" v-model.lazy="form.nome" />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">E-mail:</label>
             <div class="col">
-              <input type="email" class="form-control" v-model="form.email" />
+              <input type="email" class="form-control" v-model.trim="form.email" />
             </div>
           </div>
           <div class="mb-3 row">
@@ -23,14 +23,14 @@
               <input
                 type="password"
                 class="form-control"
-                v-model="form.senha"
+                v-model.trim="form.senha"
               />
             </div>
           </div>
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Idade:</label>
             <div class="col">
-              <input type="number" class="form-control" v-model="form.idade" />
+              <input type="number" class="form-control" v-model.number="form.idade" />
             </div>
           </div>
           <div class="mb-3 row">
