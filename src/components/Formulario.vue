@@ -271,6 +271,7 @@
                 min="0"
                 max="100"
                 step="1"
+                v-model="form.alcance"
               />
             </div>
           </div>
@@ -408,7 +409,7 @@
           <span>Cor: {{ form.cor }}</span>
         </div>
         <div class="mb-3 row">
-          <span>Valor limite:</span>
+          <span>Valor limite: {{ form.alcance }}</span>
         </div>
         <div class="mb-3 row">
           <span>Escondido:</span>
@@ -447,6 +448,7 @@ export default {
       semana: "",
       hora: "",
       cor: "",
+      alcance: 5,
     },
   }),
 };
