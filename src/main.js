@@ -8,5 +8,6 @@ const app = createApp(App);
 
 app.use(Maska); // plugin criado para o Vue
 app.config.globalProperties.$moment = moment; // Lib JS com propriedade global
+app.config.globalProperties.$moment.locale('pt-br')
 
 app.mount("#app");
