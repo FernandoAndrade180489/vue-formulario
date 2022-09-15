@@ -259,7 +259,7 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Cor:</label>
             <div class="col">
-              <input type="color" class="form-color" />
+              <input type="color" class="form-color" v-model="form.cor" />
             </div>
           </div>
           <div class="mb-3 row">
@@ -301,7 +301,10 @@
         </form>
       </div>
 
-      <div class="col-6 text-white bg-secondary">
+      <div
+        class="col-6 text-white bg-secondary"
+        :style="'background-color:' + form.cor + '!important'"
+      >
         <span class="fs-4">ESTADO DO OBJETO</span>
         <hr />
         <div class="mb-5 row">
@@ -370,10 +373,20 @@
           <span>Data/hora local: {{ form.dataHoraLocal }}</span>
           <ul>
             <li>{{ $moment(form.dataHoraLocal).format("dddd") }}</li>
-            <li>{{ $moment(form.dataHoraLocal).add(10, "days").format('LL') }}</li>
-            <li>{{ $moment(form.dataHoraLocal).add(1, "months").format('LL') }}</li>
-            <li>{{ $moment(form.dataHoraLocal).add(2, "years").format('LL') }}</li>
-            <li>{{ $moment(form.dataHoraLocal).subtract(10, "days").format('LL') }}</li>
+            <li>
+              {{ $moment(form.dataHoraLocal).add(10, "days").format("LL") }}
+            </li>
+            <li>
+              {{ $moment(form.dataHoraLocal).add(1, "months").format("LL") }}
+            </li>
+            <li>
+              {{ $moment(form.dataHoraLocal).add(2, "years").format("LL") }}
+            </li>
+            <li>
+              {{
+                $moment(form.dataHoraLocal).subtract(10, "days").format("LL")
+              }}
+            </li>
             <li>{{ $moment(form.dataHoraLocal).subtract(1, "months") }}</li>
             <li>{{ $moment(form.dataHoraLocal).subtract(2, "years") }}</li>
             <li>{{ $moment(form.dataHoraLocal).format("LLLL") }}</li>
@@ -392,7 +405,7 @@
           <span>Hora: {{ form.hora }}</span>
         </div>
         <div class="mb-3 row">
-          <span>Cor:</span>
+          <span>Cor: {{ form.cor }}</span>
         </div>
         <div class="mb-3 row">
           <span>Valor limite:</span>
@@ -433,6 +446,7 @@ export default {
       mes: "",
       semana: "",
       hora: "",
+      cor: "",
     },
   }),
 };
