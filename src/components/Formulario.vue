@@ -288,7 +288,12 @@
           <div class="mb-3 row">
             <label class="col-3 col-form-label">Upload:</label>
             <div class="col">
-              <input type="file" class="form-control" />
+              <input
+                type="file"
+                class="form-control"
+                multiple
+                @change="selecionarArquivos($event)"
+              />
             </div>
           </div>
           <hr />
@@ -420,6 +425,11 @@
         </div>
         <div class="mb-3 row">
           <span>Upload:</span>
+          <ul>
+            <li v-for="(arquivo, index) in form.arquivos" :key="index">
+              {{ arquivo.name }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -454,7 +464,13 @@ export default {
       cor: "",
       alcance: 5,
       escondido: "Esse Input esta escondido",
+      arquivos: {},
     },
   }),
+  methods: {
+    selecionarArquivos(event) {
+      this.form.arquivos = event.target.files;
+    },
+  },
 };
 </script>
